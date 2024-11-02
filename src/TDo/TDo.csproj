@@ -65,6 +65,10 @@
     </ItemGroup>
 
     <ItemGroup>
+      <Folder Include="Components\SVE\" />
+    </ItemGroup>
+
+    <ItemGroup>
       <ProjectReference Include="..\Shared\Domain\Domain.csproj" />
     </ItemGroup>
 
