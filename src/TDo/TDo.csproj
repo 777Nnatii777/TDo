@@ -58,12 +58,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <AndroidResource Remove="Components\SVE\**" />
-      <Compile Remove="Components\SVE\**" />
-      <Content Remove="Components\SVE\**" />
-      <EmbeddedResource Remove="Components\SVE\**" />
-      <MauiXaml Remove="Components\SVE\**" />
-      <None Remove="Components\SVE\**" />
+      <AndroidResource Remove="View\SVE\**" />
+      <Compile Remove="View\SVE\**" />
+      <Content Remove="View\SVE\**" />
+      <EmbeddedResource Remove="View\SVE\**" />
+      <MauiXaml Remove="View\SVE\**" />
+      <None Remove="View\SVE\**" />
     </ItemGroup>
 
     <ItemGroup>
@@ -75,11 +75,6 @@
 
     <ItemGroup>
       <ProjectReference Include="..\Shared\Domain\Domain.csproj" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Models\" />
-      <Folder Include="ViewModels\" />
     </ItemGroup>
 
 </Project>
