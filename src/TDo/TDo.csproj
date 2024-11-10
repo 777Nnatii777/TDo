@@ -58,6 +58,15 @@
     </ItemGroup>
 
     <ItemGroup>
+      <AndroidResource Remove="Components\SVE\**" />
+      <Compile Remove="Components\SVE\**" />
+      <Content Remove="Components\SVE\**" />
+      <EmbeddedResource Remove="Components\SVE\**" />
+      <MauiXaml Remove="Components\SVE\**" />
+      <None Remove="Components\SVE\**" />
+    </ItemGroup>
+
+    <ItemGroup>
         <PackageReference Include="Microsoft.Maui.Controls" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="$(MauiVersion)" />
         <PackageReference Include="Microsoft.AspNetCore.Components.WebView.Maui" Version="$(MauiVersion)" />
@@ -65,11 +74,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="Components\SVE\" />
+      <ProjectReference Include="..\Shared\Domain\Domain.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\Shared\Domain\Domain.csproj" />
+      <Folder Include="Models\" />
+      <Folder Include="ViewModels\" />
     </ItemGroup>
 
 </Project>
