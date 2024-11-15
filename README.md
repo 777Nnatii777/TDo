@@ -1,0 +1,1 @@
+O nie powstał konflikt
