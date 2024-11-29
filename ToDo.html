@@ -4,48 +4,83 @@
   <title>To-Do List</title>
   <style>
     table {
-      width: 50%;
+      width: 80%;
       border-collapse: collapse;
+      margin: 20px auto;
     }
     th, td {
       border: 1px solid black;
       padding: 10px;
       text-align: center;
     }
+    th {
+      background-color: #f4f4f4;
+    }
+    .status {
+      font-weight: bold;
+      color: white;
+      padding: 5px;
+      border-radius: 5px;
+    }
+    .inactive {
+      background-color: red;
+    }
+    .active {
+      background-color: green;
+    }
   </style>
 </head>
 <body>
-  <h1>Dynamiczna To-Do Lista</h1>
+  <h1 style="text-align: center;">Dynamiczna To-Do Lista</h1>
   <table>
     <tr>
       <th>Zadanie</th>
+      <th>To Do</th>
+      <th>In Progress</th>
+      <th>Done</th>
       <th>Status</th>
-      <th>Akcja</th>
     </tr>
     <tr>
       <td>Task 1</td>
-      <td id="status1">Inactive</td>
-      <td><input type="checkbox" onchange="updateStatus(1)"></td>
+      <td><input type="checkbox" onchange="updateStatus(1, 'todo')"></td>
+      <td><input type="checkbox" onchange="updateStatus(1, 'inprogress')"></td>
+      <td><input type="checkbox" onchange="updateStatus(1, 'done')"></td>
+      <td id="status1" class="status inactive">Inactive</td>
     </tr>
     <tr>
       <td>Task 2</td>
-      <td id="status2">Inactive</td>
-      <td><input type="checkbox" onchange="updateStatus(2)"></td>
+      <td><input type="checkbox" onchange="updateStatus(2, 'todo')"></td>
+      <td><input type="checkbox" onchange="updateStatus(2, 'inprogress')"></td>
+      <td><input type="checkbox" onchange="updateStatus(2, 'done')"></td>
+      <td id="status2" class="status inactive">Inactive</td>
+    </tr>
+    <tr>
+      <td>Task 3</td>
+      <td><input type="checkbox" onchange="updateStatus(3, 'todo')"></td>
+      <td><input type="checkbox" onchange="updateStatus(3, 'inprogress')"></td>
+      <td><input type="checkbox" onchange="updateStatus(3, 'done')"></td>
+      <td id="status3" class="status inactive">Inactive</td>
     </tr>
   </table>
 
   <script>
-    function updateStatus(taskId) {
+    function updateStatus(taskId, column) {
       const statusElement = document.getElementById(`status${taskId}`);
-      const checkbox = event.target;
+      const todoCheckbox = document.querySelector(`tr:nth-child(${taskId + 1}) td:nth-child(2) input`);
+      const inprogressCheckbox = document.querySelector(`tr:nth-child(${taskId + 1}) td:nth-child(3) input`);
+      const doneCheckbox = document.querySelector(`tr:nth-child(${taskId + 1}) td:nth-child(4) input`);
 
-      if (checkbox.checked) {
+
+      if (todoCheckbox.checked || inprogressCheckbox.checked || doneCheckbox.checked) {
         statusElement.textContent = "Active";
+        statusElement.classList.remove("inactive");
+        statusElement.classList.add("active");
       } else {
         statusElement.textContent = "Inactive";
+        statusElement.classList.remove("active");
+        statusElement.classList.add("inactive");
       }
     }
   </script>
 </body>
 </html>
-
