@@ -23,9 +23,15 @@
       border-radius: 5px;
     }
     .inactive {
-      background-color: red;
+      background-color: darkred;
     }
-    .active {
+    .todo {
+      background-color: lightcoral;
+    }
+    .inprogress {
+      background-color: gold;
+    }
+    .done {
       background-color: green;
     }
   </style>
@@ -44,21 +50,21 @@
       <td>Task 1</td>
       <td><input type="checkbox" onchange="updateStatus(1, 'todo')"></td>
       <td><input type="checkbox" onchange="updateStatus(1, 'inprogress')"></td>
-      <td><input type="checkbox" onchange="updateStatus(1, 'done')"></td>
+      <td><input type="checkbox" disabled onchange="updateStatus(1, 'done')"></td>
       <td id="status1" class="status inactive">Inactive</td>
     </tr>
     <tr>
       <td>Task 2</td>
       <td><input type="checkbox" onchange="updateStatus(2, 'todo')"></td>
       <td><input type="checkbox" onchange="updateStatus(2, 'inprogress')"></td>
-      <td><input type="checkbox" onchange="updateStatus(2, 'done')"></td>
+      <td><input type="checkbox" disabled onchange="updateStatus(2, 'done')"></td>
       <td id="status2" class="status inactive">Inactive</td>
     </tr>
     <tr>
       <td>Task 3</td>
       <td><input type="checkbox" onchange="updateStatus(3, 'todo')"></td>
       <td><input type="checkbox" onchange="updateStatus(3, 'inprogress')"></td>
-      <td><input type="checkbox" onchange="updateStatus(3, 'done')"></td>
+      <td><input type="checkbox" disabled onchange="updateStatus(3, 'done')"></td>
       <td id="status3" class="status inactive">Inactive</td>
     </tr>
   </table>
@@ -70,15 +76,27 @@
       const inprogressCheckbox = document.querySelector(`tr:nth-child(${taskId + 1}) td:nth-child(3) input`);
       const doneCheckbox = document.querySelector(`tr:nth-child(${taskId + 1}) td:nth-child(4) input`);
 
+   
+      if (inprogressCheckbox.checked) {
+        doneCheckbox.disabled = false;
+      } else {
+        doneCheckbox.checked = false; 
+        doneCheckbox.disabled = true; 
+      }
 
-      if (todoCheckbox.checked || inprogressCheckbox.checked || doneCheckbox.checked) {
-        statusElement.textContent = "Active";
-        statusElement.classList.remove("inactive");
-        statusElement.classList.add("active");
+      
+      if (doneCheckbox.checked) {
+        statusElement.textContent = "Done";
+        statusElement.className = "status done";
+      } else if (inprogressCheckbox.checked) {
+        statusElement.textContent = "In Progress";
+        statusElement.className = "status inprogress";
+      } else if (todoCheckbox.checked) {
+        statusElement.textContent = "To Do";
+        statusElement.className = "status todo";
       } else {
         statusElement.textContent = "Inactive";
-        statusElement.classList.remove("active");
-        statusElement.classList.add("inactive");
+        statusElement.className = "status inactive";
       }
     }
   </script>
