@@ -1,6 +1,28 @@
 ﻿@page "/projects"
-<h3>Projects</h3>
+<div class="container py-4">
+    <h3 class="text-primary">Projects</h3>
+    <p class="text-muted">Keep track of all your projects and their progress.</p>
 
+    <div class="card mb-3">
+        <div class="card-header bg-success text-white">Project Management</div>
+        <div class="card-body">
+            <p>Start new projects and monitor progress efficiently.</p>
+            <button class="btn btn-primary me-2">New Project</button>
+            <button class="btn btn-secondary">View Projects</button>
+        </div>
+    </div>
+
+    <div class="card">
+        <div class="card-header bg-secondary text-white">Ongoing Projects</div>
+        <div class="card-body">
+            <ul class="list-group">
+                <li class="list-group-item">Website Redesign</li>
+                <li class="list-group-item">Marketing Campaign</li>
+                <li class="list-group-item">Mobile App Development</li>
+            </ul>
+        </div>
+    </div>
+</div>
 @code {
 
 }
