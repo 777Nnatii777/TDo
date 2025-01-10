@@ -77,10 +77,4 @@
       <ProjectReference Include="..\Shared\Domain\Domain.csproj" />
     </ItemGroup>
 
-    <ItemGroup>
-      <MauiXaml Update="Pages\TaskBlockPage.xaml">
-        <Generator>MSBuild:Compile</Generator>
-      </MauiXaml>
-    </ItemGroup>
-
 </Project>

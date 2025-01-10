@@ -1,11 +1,14 @@
 ﻿using Domain.Entities;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
+using System.Windows.Input;
 
 namespace TDo.ViewModels
 {
 	public class TaskBlockViewModel
 	{
 		public ObservableCollection<TaskBlock> Tasks { get; set; }
+		public ObservableCollection<string> Stages { get; set; }
 
 		public TaskBlockViewModel()
 		{
@@ -15,6 +18,8 @@ namespace TDo.ViewModels
 				new TaskBlock { Id = 2, Title = "Task 2", Description = "Description 2", Stage = "In Progress", Color = "#ADD8E6" },
 				new TaskBlock { Id = 3, Title = "Task 3", Description = "Description 3", Stage = "Done", Color = "#90EE90" }
 			};
+
+			Stages = new ObservableCollection<string> { "To Do","In Progress","Done" };
 		}
 	}
 

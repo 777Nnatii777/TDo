@@ -1,5 +1,4 @@
 ﻿namespace TDo;
-using TDo.Pages;
 
 public partial class App : Application
 {
@@ -7,6 +6,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new NavigationPage(new TaskBlockPage());
+		MainPage = new MainPage();
 	}
 }
