@@ -1,4 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
+using TDo.ViewModels;
+
 
 namespace TDo
 {
@@ -15,9 +17,10 @@ namespace TDo
                 });
 
             builder.Services.AddMauiBlazorWebView();
+			builder.Services.AddSingleton<TaskBlockViewModel>();
 
 #if DEBUG
-            builder.Services.AddBlazorWebViewDeveloperTools();
+			builder.Services.AddBlazorWebViewDeveloperTools();
             builder.Logging.AddDebug();
 #endif
 
